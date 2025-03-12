@@ -1,26 +1,483 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: 0 0% 0%;
+  --foreground: 0 0% 100%;
+  --primary: 0 100% 50%;
+  --primary-foreground: 0 0% 0%;
+  --secondary: 0 100% 30%;
+  --secondary-foreground: 0 0% 0%;
+  --accent: 0 100% 40%;
+  --accent-foreground: 0 0% 0%;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+  --background: 0 0% 0%;
+  --foreground: 0 0% 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  color: white;
+  overflow: hidden;
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%' x='50%' dominant-baseline='middle' text-anchor='middle'>🔦</text></svg>")
+    16 16, auto;
 }
+
+/* Bill Cipher - Evil Version */
+.bill-cipher-evil {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(to bottom right, #8b0000, #ff0000);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  position: relative;
+  box-shadow: 0 0 20px #ff0000;
+  animation: pulse-red 2s infinite;
+}
+
+.bill-cipher-evil::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  width: 30px;
+  height: 30px;
+  background: black;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ff0000;
+}
+
+.bill-cipher-evil::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  width: 15px;
+  height: 15px;
+  background: #ff0000;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ff0000;
+}
+
+.bill-cipher-container {
+  width: 60px;
+  height: 60px;
+  position: relative;
+}
+
+.bill-cipher-eye-evil {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(to bottom right, #8b0000, #ff0000);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  position: relative;
+  box-shadow: 0 0 20px #ff0000;
+  animation: pulse-red 2s infinite;
+}
+
+.bill-cipher-eye-evil::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  width: 20px;
+  height: 20px;
+  background: black;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ff0000;
+}
+
+.bill-cipher-eye-evil::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  width: 10px;
+  height: 10px;
+  background: #ff0000;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ff0000;
+}
+
+@keyframes pulse-red {
+  0% {
+    box-shadow: 0 0 10px #ff0000;
+  }
+  50% {
+    box-shadow: 0 0 30px #ff0000;
+  }
+  100% {
+    box-shadow: 0 0 10px #ff0000;
+  }
+}
+
+/* Portal effect - Evil Version */
+.portal-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  z-index: 45;
+}
+
+.portal-outer-evil {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, #8b0000, #a00000, #b00000, #c00000, #d00000, #e00000, #f00000, #8b0000);
+  animation: rotate 3s linear infinite;
+  box-shadow: 0 0 30px rgba(255, 0, 0, 0.7);
+}
+
+.portal-middle-evil {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  background: conic-gradient(from 180deg, #8b0000, #a00000, #b00000, #c00000, #d00000, #e00000, #f00000, #8b0000);
+  animation: rotate 2s linear infinite reverse;
+}
+
+.portal-inner-evil {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 60%;
+  border-radius: 50%;
+  background: black;
+  box-shadow: inset 0 0 20px rgba(255, 0, 0, 0.7);
+}
+
+@keyframes rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Text effects */
+.glitch-text {
+  position: relative;
+  animation: glitch 3s infinite;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch-text::before {
+  left: 2px;
+  text-shadow: -2px 0 #ff00ff;
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.glitch-text::after {
+  left: -2px;
+  text-shadow: -2px 0 #00ffff;
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim2 5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+  0% {
+    clip: rect(31px, 9999px, 94px, 0);
+  }
+  10% {
+    clip: rect(112px, 9999px, 76px, 0);
+  }
+  20% {
+    clip: rect(85px, 9999px, 77px, 0);
+  }
+  30% {
+    clip: rect(27px, 9999px, 97px, 0);
+  }
+  40% {
+    clip: rect(64px, 9999px, 98px, 0);
+  }
+  50% {
+    clip: rect(61px, 9999px, 85px, 0);
+  }
+  60% {
+    clip: rect(99px, 9999px, 114px, 0);
+  }
+  70% {
+    clip: rect(34px, 9999px, 115px, 0);
+  }
+  80% {
+    clip: rect(98px, 9999px, 129px, 0);
+  }
+  90% {
+    clip: rect(43px, 9999px, 96px, 0);
+  }
+  100% {
+    clip: rect(82px, 9999px, 64px, 0);
+  }
+}
+
+@keyframes glitch-anim2 {
+  0% {
+    clip: rect(125px, 9999px, 162px, 0);
+  }
+  10% {
+    clip: rect(120px, 9999px, 147px, 0);
+  }
+  20% {
+    clip: rect(113px, 9999px, 171px, 0);
+  }
+  30% {
+    clip: rect(123px, 9999px, 153px, 0);
+  }
+  40% {
+    clip: rect(142px, 9999px, 158px, 0);
+  }
+  50% {
+    clip: rect(131px, 9999px, 162px, 0);
+  }
+  60% {
+    clip: rect(141px, 9999px, 154px, 0);
+  }
+  70% {
+    clip: rect(139px, 9999px, 151px, 0);
+  }
+  80% {
+    clip: rect(115px, 9999px, 156px, 0);
+  }
+  90% {
+    clip: rect(131px, 9999px, 143px, 0);
+  }
+  100% {
+    clip: rect(142px, 9999px, 165px, 0);
+  }
+}
+
+.flicker-text {
+  animation: flicker 3s infinite;
+}
+
+@keyframes flicker {
+  0%,
+  19.999%,
+  22%,
+  62.999%,
+  64%,
+  64.999%,
+  70%,
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000;
+  }
+  20%,
+  21.999%,
+  63%,
+  63.999%,
+  65%,
+  69.999% {
+    opacity: 0.5;
+    text-shadow: none;
+  }
+}
+
+/* Button effects */
+.pulse-button {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(139, 0, 0, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(139, 0, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(139, 0, 0, 0);
+  }
+}
+
+/* Background effects */
+.noise-bg {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.05;
+}
+
+.vignette-effect {
+  background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+.scanlines {
+  background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.3) 50%);
+  background-size: 100% 4px;
+  z-index: 25;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.tv-static {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.5' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  animation: static-shift 0.5s infinite;
+}
+
+@keyframes static-shift {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+/* Blood effects */
+.blood-splatter {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%238B0000' d='M30,40 Q50,10 70,40 T90,60 Q70,90 50,70 T30,40'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.3;
+  transform: rotate(var(--rotation, 0deg));
+  --rotation: 0deg;
+}
+
+.blood-splatter:nth-child(1) {
+  --rotation: 45deg;
+}
+.blood-splatter:nth-child(2) {
+  --rotation: 90deg;
+}
+.blood-splatter:nth-child(3) {
+  --rotation: 135deg;
+}
+.blood-splatter:nth-child(4) {
+  --rotation: 180deg;
+}
+.blood-splatter:nth-child(5) {
+  --rotation: 225deg;
+}
+.blood-splatter:nth-child(6) {
+  --rotation: 270deg;
+}
+
+/* Pentagram overlay */
+.pentagram-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='none' stroke='%238B0000' stroke-width='1' d='M50,10 L61,40 L94,40 L68,60 L79,90 L50,75 L21,90 L32,60 L6,40 L39,40 Z'/%3E%3C/svg%3E");
+  background-size: 300px;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.1;
+  animation: pentagram-pulse 5s infinite;
+}
+
+@keyframes pentagram-pulse {
+  0%,
+  100% {
+    opacity: 0.05;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
+
+/* Eyes in the darkness */
+.eye {
+  width: 100%;
+  height: 100%;
+  background: white;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+}
+
+.pupil {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  background: black;
+  border-radius: 50%;
+  top: 25%;
+  left: 25%;
+  animation: look-around 3s infinite;
+}
+
+@keyframes look-around {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(25%, 0);
+  }
+  50% {
+    transform: translate(0, 25%);
+  }
+  75% {
+    transform: translate(-25%, 0);
+  }
+}
+
+/* Jumpscare face */
+.jumpscare-face {
+  width: 300px;
+  height: 300px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%23000' stroke='%23FF0000' stroke-width='2'/%3E%3Ccircle cx='35' cy='40' r='10' fill='%23FF0000'/%3E%3Ccircle cx='65' cy='40' r='10' fill='%23FF0000'/%3E%3Cpath fill='none' stroke='%23FF0000' stroke-width='3' d='M30,70 Q50,90 70,70'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: drop-shadow(0 0 10px #ff0000);
+  animation: shake 0.1s infinite;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(5px, 5px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-5px, -5px) rotate(-1deg);
+  }
+  75% {
+    transform: translate(-5px, 5px) rotate(1deg);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
